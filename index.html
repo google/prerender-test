@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>Prerender Test</title>
+  <link rel="stylesheet" href="default.css" type="text/css"/>
+  <script src="prerender.js"></script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24029890-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body onload="check_prerender_enabled()">
+  <div id="container">
+    <div id="inner">
+      <h1>Prerender test</h1>
+      <form onsubmit="return prerender_url()">
+        <input type="text" id="url" disabled="disabled"/>
+        <input type="submit" id="url_submit" value="Prerender" disabled="disabled"/>
+      </form>
+      <br />
+      <span id="progress"></span><a id="anchor"></a><br />
+      <div id="learn_more">Learn more about <a href="http://code.google.com/chrome/whitepapers/prerender.html">prerendering in Chrome</a>.</span>
+    </div>
+  </div>
+</body>
+</html>

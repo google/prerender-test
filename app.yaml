@@ -1,0 +1,31 @@
+application: prerender-test
+version: 2
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /(.*\.css)
+  mime_type: text/css
+  static_files: \1
+  upload: (.*\.css)
+
+- url: /(.*\.html)
+  mime_type: text/html
+  static_files: \1
+  upload: (.*\.html)
+
+- url: /(.*\.js)
+  mime_type: text/javascript
+  static_files: \1
+  upload: (.*\.js)
+
+# redirect to index.html if unknown
+- url: /(.+)
+  static_files: redirector.html
+  upload: redirector.html
+
+# site root
+- url: /
+  static_files: index.html
+  upload: index.html
